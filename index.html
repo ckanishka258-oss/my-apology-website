@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>I'm Sorry 💗</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "Comic Sans MS", "Segoe UI", sans-serif;
+            background: linear-gradient(135deg, #ffe4ec, #fff0f5, #fce1ff);
+            color: #6b4054;
+            text-align: center;
+            overflow-x: hidden;
+        }
+
+        /* Floating hearts */
+        .heart {
+            position: fixed;
+            bottom: -30px;
+            font-size: 25px;
+            animation: float 7s linear infinite;
+            opacity: 0.7;
+            z-index: 0;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(0) rotate(0deg);
+                opacity: 0;
+            }
+            20% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-110vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        section {
+            min-height: 100vh;
+            padding: 70px 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Opening */
+        .teddy {
+            font-size: 90px;
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            50% {
+                transform: translateY(-15px);
+            }
+        }
+
+        h1 {
+            font-size: 48px;
+            color: #d65a82;
+            margin: 15px 0;
+        }
+
+        h2 {
+            color: #c94f78;
+            margin-bottom: 20px;
+            font-size: 32px;
+        }
+
+        p {
+            font-size: 18px;
+            line-height: 1.8;
+            max-width: 650px;
+        }
+
+        .small-text {
+            margin-top: 15px;
+            font-size: 16px;
+        }
+
+        /* Button */
+        button {
+            margin-top: 30px;
+            padding: 14px 28px;
+            border: none;
+            border-radius: 30px;
+            background: #e8799c;
+            color: white;
+            font-size: 17px;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(200, 80, 120, 0.25);
+            transition: 0.3s;
+        }
+
+        button:hover {
+            transform: scale(1.08);
+            background: #d95d84;
+        }
+
+        /* Apology card */
+        .card {
+            max-width: 700px;
+            background: rgba(255,255,255,0.75);
+            padding: 35px;
+            border-radius: 30px;
+            box-shadow: 0 10px 30px rgba(150, 80, 110, 0.15);
+            border: 2px solid #ffd1df;
+        }
+
+        .card p {
+            margin: 12px auto;
+        }
+
+        /* Reasons */
+        .reasons {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 18px;
+            max-width: 700px;
+            margin-top: 20px;
+        }
+
+        .reason {
+            background: white;
+            padding: 22px;
+            border-radius: 22px;
+            box-shadow: 0 5px 15px rgba(150,80,110,0.12);
+            transition: 0.3s;
+        }
+
+        .reason:hover {
+            transform: translateY(-7px) rotate(-1deg);
+        }
+
+        .reason span {
+            font-size: 35px;
+        }
+
+        /* Photo gallery */
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 25px;
+            max-width: 800px;
+            margin-top: 20px;
+        }
+
+        .photo {
+            background: white;
+            padding: 10px 10px 25px;
+            border-radius: 8px;
+            box-shadow: 0 8px 20px rgba(100,50,70,0.18);
+            transform: rotate(-2deg);
+            transition: 0.3s;
+        }
+
+        .photo:nth-child(even) {
+            transform: rotate(2deg);
+        }
+
+        .photo:hover {
+            transform: rotate(0deg) scale(1.05);
+        }
+
+        .photo img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 5px;
+        }
+
+        .photo p {
+            font-size: 15px;
+            margin-top: 10px;
+        }
+
+        /* Final */
+        .final {
+            background: linear-gradient(135deg, #ffdce8, #f8d9ff);
+        }
+
+        .final h1 {
+            font-size: 45px;
+        }
+
+        .buttons {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        #response {
+            margin-top: 25px;
+            font-size: 22px;
+            color: #d34e7c;
+            font-weight: bold;
+        }
+
+        footer {
+            padding: 20px;
+            background: #f5c6d6;
+            color: #81445d;
+        }
+
+        @media(max-width:600px) {
+
+            h1 {
+                font-size: 36px;
+            }
+
+            h2 {
+                font-size: 27px;
+            }
+
+            .reasons,
+            .gallery {
+                grid-template-columns: 1fr;
+            }
+
+            .photo img {
+                height: 280px;
+            }
+
+            .card {
+                padding: 25px 18px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Floating hearts -->
+    <div class="heart" style="left:10%; animation-delay:0s;">💗</div>
+    <div class="heart" style="left:25%; animation-delay:2s;">💕</div>
+    <div class="heart" style="left:45%; animation-delay:4s;">💖</div>
+    <div class="heart" style="left:65%; animation-delay:1s;">💗</div>
+    <div class="heart" style="left:85%; animation-delay:3s;">💞</div>
+
+
+    <!-- Opening -->
+    <section>
+
+        <div class="teddy">🧸</div>
+
+        <h1>Hey You... 🥺</h1>
+
+        <p>
+            I made this little website because sometimes
+            saying "I'm sorry" just doesn't feel like enough.
+        </p>
+
+        <p class="small-text">
+            So... please give me a minute. 👉👈
+        </p>
+
+        <button onclick="scrollToSection('sorry')">
+            Open My Little Letter 💌
+        </button>
+
+    </section>
+
+
+    <!-- Apology -->
+    <section id="sorry">
+
+        <h2>I'm Really Sorry 💗</h2>
+
+        <div class="card">
+
+            <p>
+                I know I made a mistake, and I'm genuinely sorry.
+            </p>
+
+            <p>
+                I never wanted to hurt you or make you feel bad.
+                I wish I could go back and change that moment,
+                but I know I can't.
+            </p>
+
+            <p>
+                All I can do is accept my mistake, learn from it,
+                and promise to do better.
+            </p>
+
+            <p>
+                You mean a lot to me, and I really don't want
+                one bad moment to become bigger than all
+                the good memories we've shared. 🥺
+            </p>
+
+            <p>
+                So from the bottom of my heart...
+            </p>
+
+            <h2>I'm Sorry. ❤️</h2>
+
+        </div>
+
+        <button onclick="scrollToSection('reasons')">
+            Keep Reading 🥺
+        </button>
+
+    </section>
+
+
+    <!-- Reasons -->
+    <section id="reasons">
+
+        <h2>Why I'm Saying Sorry 🥹</h2>
+
+        <div class="reasons">
+
+            <div class="reason">
+                <span>🥺</span>
+                <p>I should have understood your feelings better.</p>
+            </div>
+
+            <div class="reason">
+                <span>💔</span>
+                <p>I'm sorry for making you feel hurt.</p>
+            </div>
+
+            <div class="reason">
+                <span>🫂</span>
+                <p>I wish I could give you a big hug right now.</p>
+            </div>
+
+            <div class="reason">
+                <span>🌷</span>
+                <p>I promise I'll try to be better.</p>
+            </div>
+
+        </div>
+
+        <button onclick="scrollToSection('memories')">
+            Our Memories 📸
+        </button>
+
+    </section>
+
+
+    <!-- Photos -->
+    <section id="memories">
+
+        <h2>A Few Little Memories 📸💗</h2>
+
+        <p>
+            Because one bad moment shouldn't erase
+            all the beautiful ones.
+        </p>
+
+        <div class="gallery">
+
+            <div class="photo">
+                <img src="photo1.jpeg">
+                <p>One of my favourite memories 🥹💗</p>
+            </div>
+
+            <div class="photo">
+                <img src="photo2.jpeg">
+                <p>Look how cute we were 😭💕</p>
+            </div>
+
+            <div class="photo">
+                <img src="photo3.jpeg">
+                <p>This moment still makes me smile 🤍</p>
+            </div>
+
+            <div class="photo">
+                <img src="photo4.jpeg">
+                <p>More memories to make... hopefully 🫂</p>
+            </div>
+
+        </div>
+
+        <button onclick="scrollToSection('final')">
+            One Last Thing 💌
+        </button>
+
+    </section>
+
+
+    <!-- Final -->
+    <section id="final" class="final">
+
+        <div style="font-size:70px;">🥺👉👈</div>
+
+        <h1>Can We Start Again?</h1>
+
+        <p>
+            I don't expect you to forget everything instantly.
+            I just hope you can forgive me when you're ready.
+        </p>
+
+        <div class="buttons">
+
+            <button onclick="forgive()">
+                💗 I Forgive You
+            </button>
+
+            <button onclick="needTime()">
+                🥺 I Need Some Time
+            </button>
+
+        </div>
+
+        <div id="response"></div>
+
+    </section>
+
+
+    <footer>
+        Made with a little bit of love, a lot of regret,
+        and way too many hearts. 💗
+    </footer>
+
+
+    <script>
+
+        function scrollToSection(id) {
+            document.getElementById(id).scrollIntoView({
+                behavior: "smooth"
+            });
+        }
+
+        function forgive() {
+
+            document.getElementById("response").innerHTML =
+                "😭💗 YAYYY... Thank you! I promise I'll do better. 🫂💕";
+
+            createHearts();
+        }
+
+        function needTime() {
+
+            document.getElementById("response").innerHTML =
+                "That's okay. Take all the time you need. I'll understand. 🥺🤍";
+
+        }
+
+        function createHearts() {
+
+            for (let i = 0; i < 20; i++) {
+
+                let heart = document.createElement("div");
+
+                heart.innerHTML = "💗";
+
+                heart.style.position = "fixed";
+                heart.style.left = Math.random() * 100 + "%";
+                heart.style.bottom = "0";
+                heart.style.fontSize = "25px";
+                heart.style.zIndex = "999";
+                heart.style.transition = "4s";
+
+                document.body.appendChild(heart);
+
+                setTimeout(() => {
+
+                    heart.style.transform =
+                        "translateY(-100vh) rotate(360deg)";
+
+                    heart.style.opacity = "0";
+
+                }, 100);
+
+                setTimeout(() => {
+                    heart.remove();
+                }, 4500);
+
+            }
+        }
+
+    </script>
+
+</body>
+</html>
